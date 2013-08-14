@@ -8,7 +8,7 @@
  * @license MIT
  */
 
-namespace lib\x4;
+namespace lib\tools;
 
 require_once './lib.php';
 

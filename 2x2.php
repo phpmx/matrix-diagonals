@@ -30,4 +30,5 @@ $matrix = array(
 	[0][1] [1][0]
 	[1][1]
 */
-getMatrix( $matrix );
+
+print_r(getMatrixDiagonals( $matrix ));

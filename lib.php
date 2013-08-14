@@ -9,9 +9,7 @@
  */
 namespace lib\tools;
 
-function getMatrix( $matrix ){
-	// line jump
-	$lineJump = "\r\n";
+function getMatrixDiagonals( $matrix = array() ){	
 	// parse position 
 	$parsePosition = function($r,$c){
 		return "[{$r}][{$c}]";
@@ -21,12 +19,13 @@ function getMatrix( $matrix ){
 	foreach($matrix as $key => $row) {		
 		$rows = count($row);
 		if($rows != $cols){
-			$e = true;
+			echo "la raíz no es cuadrada"; exit;
 		}
 	}
+	// results array
+	$results = array();
 
 	// fisrt loop
-	$results = array();
 	$r = 0;
 	$c = 0;			
 	for ($c = 0; $c < $cols; $c++) {		
@@ -70,13 +69,7 @@ function getMatrix( $matrix ){
 		$results["values"][] = implode(" ", $values);
 		$cc++;
 	}
-	
-	
-	// if error
-	if (isset($e)){
-		echo "something went wrong $lineJump";		
-	}else{
-		echo print_r($results,true) . $lineJump;
-	}
+	// print results				
+	return $results;
 }
 

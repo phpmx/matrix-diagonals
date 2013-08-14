@@ -41,4 +41,4 @@ $matrix = array(
 	[3][3]
 */
 
-getMatrix( $matrix );
+print_r(getMatrixDiagonals( $matrix ));

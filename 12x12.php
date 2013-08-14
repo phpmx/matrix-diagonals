@@ -82,4 +82,4 @@ $matrix = array(
 
 */
 
-getMatrix( $matrix );
+print_r(getMatrixDiagonals( $matrix ));

@@ -27,7 +27,6 @@ function getMatrixDiagonals( $matrix = array() ){
 
 	// fisrt loop
 	$r = 0;
-	$c = 0;			
 	for ($c = 0; $c < $cols; $c++) {		
 		$position = array();				
 		$values = array();

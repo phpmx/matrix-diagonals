@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Matrix NxN</title>
+</head>
+<body>
+	<h1>Matrix</h1>
+	
+	<p>Ingresa el numero para la matriz cuadrada:</p><input type="text" id="numero" value="4"/>
+	<button id="generate" onclick="generateArray(); storedResult();">Generate and show Matrix!</button>
+	
+	<br/><h2 id="txt_mat">Matriz de NxN</h2>
+	<div id="matrixof"></div>
+
+	<br/><h2 >Resultado</h2>
+	<br /><div id="result"></div>
+
+<script type="text/javascript">
+var array = [];
+
+function generateArray(){
+
+	var number = document.getElementById('numero').value;
+	if(isNaN(number)){
+		alert('Debes ingresar un valor numerico.');
+		return false;
+	}
+
+	if(number>28){
+		if(!confirm('Ese numero es demaciado largo, puede tomar un poco de tiempo. Quieres continuar?')){
+			return false;
+		}
+	}
+
+	array = [];
+	document.getElementById('matrixof').innerHTML = '';
+	document.getElementById('txt_mat').innerHTML = 'Matriz de '+number+'x'+number;
+	
+	
+	for(x=0; x<number; x++){
+		array.push(new Array());
+		for(y=0; y<number; y++){
+			array[x].push(y+1);
+			document.getElementById('matrixof').innerHTML += y+1 + ' ';
+		}
+		document.getElementById('matrixof').innerHTML += ' <br/>';
+	}	
+
+	return true;
+}
+
+function storedResult(){
+	
+	if( array.length<1 || array.length!=[array[0].length]){
+		alert('La matriz no es cuadrada o no se ha inicializado.');
+		return false;
+	}
+	
+	var output1 = [], output2 = [];
+	var line1 = '', line2 = '';
+
+	for(x=0; x<array.length;x++)
+	{
+		line1 = '';
+		for(y=x; y>=0;y--)
+			line1 += array[x][y] + ' ';
+		output1.push(line1.trim());
+	}
+	
+	var tmp = output1[array.length-1].split(' ');
+	for(x=0; x<tmp.length-1; x++){
+		line2 = '';
+		for(y=0; y<tmp.length-(x+1); y++)
+			line2 += tmp[y] + ' ';
+		output2.push(line2.trim());
+	}
+
+	document.getElementById('result').innerHTML = output1.join('<br />').trim() + '<br/>' + output2.join('<br />');
+	return true;
+}
+
+
+</script>
+</body>
+</html>

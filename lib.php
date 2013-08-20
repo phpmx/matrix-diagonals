@@ -33,10 +33,9 @@ function getMatrixDiagonals( $matrix = array() ){
 		$position[] = $parsePosition($r,$c);
 		$values[] = $matrix[$r][$c];
 		if($c > 0){	
-			$k = $c;
-			for($i = $k; $i > 0; $i--){
+			for($i = $c; $i > 0; $i--){
 				$x = $i - 1;
-				$y = $k - $i + 1;
+				$y = $c - $i + 1;
 			 	$position[] = $parsePosition($y,$x);
 			 	$values[] = $matrix[$y][$x];
 				
